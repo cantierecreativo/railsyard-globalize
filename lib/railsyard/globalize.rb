@@ -1,3 +1,4 @@
+require 'globalize3'
 require 'railsyard/globalize/engine'
 require 'railsyard/globalize/dsl/edit_extension'
 require 'railsyard/globalize/dsl/edit_group_extension'
