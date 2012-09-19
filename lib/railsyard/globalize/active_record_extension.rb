@@ -2,13 +2,12 @@ module Railsyard::Globalize
   module ActiveRecordExtension
 
     def railsyard_translates(*args, &block)
-      attrs = args.dup.extract_options!
       translates(*args)
+      args.extract_options!
+
       translation_class.instance_eval &block
-      translation_class.instance_eval do
-        attr_accessible :locale
-        attr_accessible *attrs
-      end
+      translation_class.attr_accessible :locale
+      translation_class.attr_accessible *args
 
       attr_accessible :translations_attributes
       accepts_nested_attributes_for :translations, allow_destroy: true
