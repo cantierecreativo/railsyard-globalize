@@ -1,5 +1,5 @@
 module Railsyard::Globalize::Dsl
-  module EditExtension
+  module EditGroupExtension
 
     def translate(options = {}, &block)
       require 'railsyard/globalize/config/nested_edit'
@@ -7,9 +7,8 @@ module Railsyard::Globalize::Dsl
       group = Railsyard::Globalize::Config::NestedEdit.new(&block)
       locale_field = Railsyard::Backend::Config::EditField.new(:locale, as: :hidden)
       group.add_field_to_default_group(locale_field)
-      config.add_group(group)
+      config.add_field(group)
     end
 
   end
 end
-

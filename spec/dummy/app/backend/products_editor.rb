@@ -8,9 +8,11 @@ Railsyard::Backend.define_editor_for Product do
 
   edit do
     field :sku
-    translate do
-      field :title
-      field :description
+    group :translated_content do
+      translate do
+        field :title
+        field :description
+      end
     end
   end
 

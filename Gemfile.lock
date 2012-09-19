@@ -15,7 +15,7 @@ PATH
       coffee-rails
       compass-rails
       formalize-rails
-      humane-rails
+      humane-rails (= 2.8.0.0.1.2)
       jquery-rails
       kaminari
       rails
@@ -86,7 +86,7 @@ GEM
       activerecord (>= 3.0.0)
       paper_trail (~> 2)
     hike (1.2.1)
-    humane-rails (3.0.4.0.1.2)
+    humane-rails (2.8.0.0.1.2)
     i18n (0.6.0)
     journey (1.0.1)
     jquery-rails (2.1.2)

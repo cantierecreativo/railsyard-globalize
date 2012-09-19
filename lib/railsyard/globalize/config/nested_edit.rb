@@ -25,7 +25,7 @@ module Railsyard::Globalize::Config
       tabs = context.content_tag(:ul) do
         I18n.available_locales.map do |locale|
           context.content_tag(:li) do
-            context.content_tag(:a, locale, href:"##{locale}", data: { behaviour: "tab", tab_scope: "globalize" })
+            context.content_tag(:a, I18n.t(:"railsyard.globalize.locale.#{locale}"), href:"##{locale}", data: { behaviour: "tab", tab_scope: "globalize" })
           end
         end.join.html_safe
       end
@@ -33,14 +33,18 @@ module Railsyard::Globalize::Config
       # nested forms
       nested_form = form.simple_fields_for(:translations) do |subform|
         context.content_tag(:div, id: subform.object.locale) do
-          context.render("railsyard/resources/nested_form", form: subform, config: self)
+          groups.first.fields.map do |field|
+            field.render(subform, context)
+          end.join.html_safe
         end
       end
 
-      [
-        tabs,
-        nested_form
-      ].join.html_safe
+      context.content_tag(:div, class: "railsyard-globalize") do
+        [
+          tabs,
+          nested_form
+        ].join.html_safe
+      end
     end
 
   end

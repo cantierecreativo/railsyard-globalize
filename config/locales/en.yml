@@ -1,7 +1,6 @@
 en:
   railsyard:
     globalize:
-      no_image: "No image present"
-      upload: "Upload"
-      url: "URL"
-      remove: "Remove?"
+      locale:
+        it: "Italian"
+        en: "English"
